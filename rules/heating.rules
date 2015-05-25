@@ -1,7 +1,7 @@
 import org.openhab.core.library.types.*
 import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
- 
+
 var Number defaultTemp = 20
 var Number minTemp = 9
 var Number nightTemp = 15
@@ -119,7 +119,7 @@ then
 end
 
 rule "heatingBoost"
-when 
+when
         Item Heating_Boost changed to ON
 then
         previousTemp = Temp_Desired_Thermostat.state
@@ -137,4 +137,3 @@ then
         sendCommand(Temp_Desired_Thermostat, previousTemp)
         notifyMyAndroid("Away", "Away changed to " + Auto_Away.state)
 end
-

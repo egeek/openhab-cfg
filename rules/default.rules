@@ -116,46 +116,70 @@ then
   postUpdate(Boiler_Sensor_LastUpdate, new DateTimeType())
 end
 
-rule "Record Humid_Sensor_Hall_LastUpdate"
+rule "Record Humid_Sensor_Outside_LastUpdate"
 when
-  Item Humid_Sensor_Hall received update
+  Item Humid_Sensor_Outside received update
 then
-  postUpdate(Humid_Sensor_Hall_LastUpdate, new DateTimeType())
+  postUpdate(Humid_Sensor_Outside_LastUpdate, new DateTimeType())
 end
 
-rule "Record Lumin_Sensor_Hall_LastUpdate"
+rule "Record Lumin_Sensor_Outside_LastUpdate"
 when
-  Item Lumin_Sensor_Hall received update
+  Item Lumin_Sensor_Outside received update
 then
-  postUpdate(Lumin_Sensor_Hall_LastUpdate, new DateTimeType())
+  postUpdate(Lumin_Sensor_Outside_LastUpdate, new DateTimeType())
 end
 
-rule "Record Motion_Sensor_Hall_LastUpdate"
+rule "Record Motion_Sensor_Outside_LastUpdate"
 when
-  Item Motion_Sensor_Hall received update
+  Item Motion_Sensor_Outside received update
 then
-  postUpdate(Motion_Sensor_Hall_LastUpdate, new DateTimeType())
+  postUpdate(Motion_Sensor_Outside_LastUpdate, new DateTimeType())
 end
 
-rule "Record Humid_Sensor_Landing_LastUpdate"
+
+
+rule "Record Humid_Sensor_Downstairs_LastUpdate"
+when
+  Item Humid_Sensor_Downstairs received update
+then
+  postUpdate(Humid_Sensor_Downstairs_LastUpdate, new DateTimeType())
+end
+
+rule "Record Lumin_Sensor_Downstairs_LastUpdate"
+when
+  Item Lumin_Sensor_Downstairs received update
+then
+  postUpdate(Lumin_Sensor_Downstairs_LastUpdate, new DateTimeType())
+end
+
+rule "Record Motion_Sensor_Downstairs_LastUpdate"
+when
+  Item Motion_Sensor_Downstairs received update
+then
+  postUpdate(Motion_Sensor_Downstairs_LastUpdate, new DateTimeType())
+end
+
+
+rule "Record Humid_Sensor_Upstairs_LastUpdate"
   when
-Item Humid_Sensor_Landing received update
+Item Humid_Sensor_Upstairs received update
 then
-  postUpdate(Humid_Sensor_Landing_LastUpdate, new DateTimeType())
+  postUpdate(Humid_Sensor_Upstairs_LastUpdate, new DateTimeType())
 end
 
-rule "Record Lumin_Sensor_Landing_LastUpdate"
+rule "Record Lumin_Sensor_Upstairs_LastUpdate"
 when
-  Item Lumin_Sensor_Landing received update
+  Item Lumin_Sensor_Upstairs received update
 then
-  postUpdate(Lumin_Sensor_Landing_LastUpdate, new DateTimeType())
+  postUpdate(Lumin_Sensor_Upstairs_LastUpdate, new DateTimeType())
 end
 
-rule "Record Motion_Sensor_Landing_LastUpdate"
+rule "Record Motion_Sensor_Upstairs_LastUpdate"
 when
-  Item Motion_Sensor_Landing received update
+  Item Motion_Sensor_Upstairs received update
 then
-  postUpdate(Motion_Sensor_Landing_LastUpdate, new DateTimeType())
+  postUpdate(Motion_Sensor_Upstairs_LastUpdate, new DateTimeType())
 end
 
 rule "Record Contact_FrontDoor_LastUpdate"
@@ -186,11 +210,25 @@ then
   postUpdate(Auto_Away_LastUpdate, new DateTimeType())
 end
 
-rule "Record Battery_Sensor_Hall_LastUpdate"
+rule "Record Battery_Sensor_Outside_LastUpdate"
 when
-  Item Battery_Sensor_Hall received update
+  Item Battery_Sensor_Outside received update
 then
-  postUpdate(Battery_Sensor_Hall_LastUpdate, new DateTimeType())
+  postUpdate(Battery_Sensor_Outside_LastUpdate, new DateTimeType())
+end
+
+rule "Record Battery_Sensor_Downstairs_LastUpdate"
+when
+  Item Battery_Sensor_Downstairs received update
+then
+  postUpdate(Battery_Sensor_Downstairs_LastUpdate, new DateTimeType())
+end
+
+rule "Record Battery_Sensor_Upstairs_LastUpdate"
+when
+  Item Battery_Sensor_Upstairs received update
+then
+  postUpdate(Battery_Sensor_Upstairs_LastUpdate, new DateTimeType())
 end
 
 rule "Record Battery_FrontDoor_LastUpdate"

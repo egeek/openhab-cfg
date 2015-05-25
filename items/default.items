@@ -19,8 +19,9 @@ Group	FF_Ensuite	"En suite"	<bath>	(gFF)
 Group	Outdoor_Front	"Front Garden"	<garden>	(Outdoor)
 Group	Outdoor_Rear	"Back Garden"	<garden2>	(Outdoor)
 Group	Outdoor_Garage	"Garage"	<garage>	(Outdoor)
-Group	Hall_Temperature_Chart
-Group	Landing_Temperature_Chart
+Group	Downstairs_Temperature_Chart
+Group	Upstairs_Temperature_Chart
+Group	Outside_Temperature_Chart
 
 /* Weather from Yahoo */
 Group	Weather_Chart	(Weather)
@@ -36,27 +37,27 @@ DateTime	Weather_LastUpdate	"Last Update [%1$ta %1$tR]"	<clock>
 DateTime	Date	"Date [%1$tA, %1$td.%1$tm.%1$tY %1$tT]"	<calendar>	{ ntp="Europe/London:en_GB" }
 
 /* Downstairs Aeon Labs Multisensor - Battery Powered - set Configuration item 101 to 225 (send all values) and 111 to 3600 (hourly) using Habmin */
-Number	Temp_Sensor_Hall	"Downstairs temperature: [%.1f C]"	<temperature> (GF_Hall,Hall_Temperature_Chart)		{ zwave="2:command=sensor_multilevel,sensor_type=1" }
-Number	Humid_Sensor_Hall	"Downstairs Relative humidity: [%.0f %%]"	<water>	(GF_Hall) { zwave="2:command=sensor_multilevel,sensor_type=5" }
-Number	Lumin_Sensor_Hall	"Downstairs Luminance: [%.0f Lux]"	<sun>	(GF_Hall)		{ zwave="2:command=sensor_multilevel,sensor_type=3" }
-Number	Battery_Sensor_Hall	"Downstairs Sensor Battery: [%d %%]"	<battery> (GF_Hall)		{ zwave="2:command=battery" }
-Contact	Motion_Sensor_Hall	"Downstairs Sensor [MAP(motion.map):%s]"	(GF_Hall) { zwave="2:command=sensor_binary,respond_to_basic=true" }
+Number	Temp_Sensor_Downstairs	"Downstairs temperature: [%.1f C]"	<temperature> (GF_Downstairs,Downstairs_Temperature_Chart)		{ zwave="2:command=sensor_multilevel,sensor_type=1" }
+Number	Humid_Sensor_Downstairs	"Downstairs Relative humidity: [%.0f %%]"	<water>	(GF_Downstairs) { zwave="2:command=sensor_multilevel,sensor_type=5" }
+Number	Lumin_Sensor_Downstairs	"Downstairs Luminance: [%.0f Lux]"	<sun>	(GF_Downstairs)		{ zwave="2:command=sensor_multilevel,sensor_type=3" }
+Number	Battery_Sensor_Downstairs	"Downstairs Sensor Battery: [%d %%]"	<battery> (GF_Downstairs)		{ zwave="2:command=battery" }
+Contact	Motion_Sensor_Downstairs	"Downstairs Sensor [MAP(motion.map):%s]"	(GF_Downstairs) { zwave="2:command=sensor_binary,respond_to_basic=true" }
 
 
 /* Upstairs Aeon Labs Multisensor - Battery Powered - set Configuration item 101 to 225 (send all values) and 111 to 3600 (hourly) using Habmin */
-Number	Temp_Sensor_Hall	"Upstairs temperature: [%.1f C]"	<temperature> (GF_Hall,Hall_Temperature_Chart)		{ zwave="4:command=sensor_multilevel,sensor_type=1" }
-Number	Humid_Sensor_Hall	"Upstairs Relative humidity: [%.0f %%]"	<water>	(GF_Hall) { zwave="4:command=sensor_multilevel,sensor_type=5" }
-Number	Lumin_Sensor_Hall	"Upstairs Luminance: [%.0f Lux]"	<sun>	(GF_Hall)		{ zwave="4:command=sensor_multilevel,sensor_type=3" }
-Number	Battery_Sensor_Hall	"Upstairs Sensor Battery: [%d %%]"	<battery> (GF_Hall)		{ zwave="4:command=battery" }
-Contact	Motion_Sensor_Hall	"Upstairs Sensor [MAP(motion.map):%s]"	(GF_Hall) { zwave="4:command=sensor_binary,respond_to_basic=true" }
+Number	Temp_Sensor_Upstairs	"Upstairs temperature: [%.1f C]"	<temperature> (GF_Upstairs,Upstairs_Temperature_Chart)		{ zwave="4:command=sensor_multilevel,sensor_type=1" }
+Number	Humid_Sensor_Upstairs	"Upstairs Relative humidity: [%.0f %%]"	<water>	(GF_Upstairs) { zwave="4:command=sensor_multilevel,sensor_type=5" }
+Number	Lumin_Sensor_Upstairs	"Upstairs Luminance: [%.0f Lux]"	<sun>	(GF_Upstairs)		{ zwave="4:command=sensor_multilevel,sensor_type=3" }
+Number	Battery_Sensor_Upstairs	"Upstairs Sensor Battery: [%d %%]"	<battery> (GF_Upstairs)		{ zwave="4:command=battery" }
+Contact	Motion_Sensor_Upstairs	"Upstairs Sensor [MAP(motion.map):%s]"	(GF_Upstairs) { zwave="4:command=sensor_binary,respond_to_basic=true" }
 
 
 /* Outside Aeon Labs Multisensor - Battery Powered - set Configuration item 101 to 225 (send all values) and 111 to 3600 (hourly) using Habmin */
-Number	Temp_Sensor_Hall	"Outside temperature: [%.1f C]"	<temperature> (GF_Hall,Hall_Temperature_Chart)		{ zwave="3:command=sensor_multilevel,sensor_type=1" }
-Number	Humid_Sensor_Hall	"Outside Relative humidity: [%.0f %%]"	<water>	(GF_Hall) { zwave="3:command=sensor_multilevel,sensor_type=5" }
-Number	Lumin_Sensor_Hall	"Outside Luminance: [%.0f Lux]"	<sun>	(GF_Hall)		{ zwave="3:command=sensor_multilevel,sensor_type=3" }
-Number	Battery_Sensor_Hall	"Outside Sensor Battery: [%d %%]"	<battery> (GF_Hall)		{ zwave="3:command=battery" }
-Contact	Motion_Sensor_Hall	"Outside Sensor [MAP(motion.map):%s]"	(GF_Hall) { zwave="3:command=sensor_binary,respond_to_basic=true" }
+Number	Temp_Sensor_Outside	"Aeotec Outside temperature: [%.1f C]"	<temperature> (GF_Outside,Outside_Temperature_Chart)		{ zwave="3:command=sensor_multilevel,sensor_type=1" }
+Number	Humid_Sensor_Outside	"Outside Relative humidity: [%.0f %%]"	<water>	(GF_Outside) { zwave="3:command=sensor_multilevel,sensor_type=5" }
+Number	Lumin_Sensor_Outside	"Outside Luminance: [%.0f Lux]"	<sun>	(GF_Outside)		{ zwave="3:command=sensor_multilevel,sensor_type=3" }
+Number	Battery_Sensor_Outside	"Outside Sensor Battery: [%d %%]"	<battery> (GF_Outside)		{ zwave="3:command=battery" }
+Contact	Motion_Sensor_Outside	"Outside Sensor [MAP(motion.map):%s]"	(GF_Outside) { zwave="3:command=sensor_binary,respond_to_basic=true" }
 
 
 /* Wake on LAN */
@@ -72,24 +73,45 @@ Switch  Television_Alive "TV On? [%s]" <video> (GF_Lounge) { exec="<[/bin/sh@@-c
 Switch	Auto_Away	"Auto Away? [%s]"	(All)
 Switch	Manual_Away	"Manual Away?"	(All)
 Switch	Heating_Boost	"Heating Boost"	<temperature>	(All)
-Number	Temp_Sensor_Hall_Min	"Today's minimum [%.1f C]"	<temperature>	(GF_Hall,Hall_Temperature_Chart)
-Number	Temp_Sensor_Hall_Max	"Today's maximum [%.1f C]"	<temperature>	(GF_Hall,Hall_Temperature_Chart)
-Number	Temp_Sensor_Hall_Chart_Period	"Hall Temp Chart Period"
-Number	Temp_Sensor_Landing_Min	"Today's minimum [%.1f C]"	<temperature>	(FF_Hall,Landing_Temperature_Chart)
-Number	Temp_Sensor_Landing_Max	"Today's maximum [%.1f C]"	<temperature>	(FF_Hall,Landing_Temperature_Chart)
-Number	Temp_Sensor_Landing_Chart_Period	"Landing Temp Chart Period"
+Number	Temp_Sensor_Downstairs_Min	"Today's minimum [%.1f C]"	<temperature>	(GF_Downstairs,Downstairs_Temperature_Chart)
+Number	Temp_Sensor_Downstairs_Max	"Today's maximum [%.1f C]"	<temperature>	(GF_Downstairs,Downstairs_Temperature_Chart)
+Number	Temp_Sensor_Downstairs_Chart_Period	"Downstairs Temp Chart Period"
 
-DateTime Temp_Sensor_Landing_LastUpdate	"Landing Temp Updated [%1$ta %1$tR]"	<clock>
-DateTime Temp_Sensor_Hall_LastUpdate	"Hall Temp Updated [%1$ta %1$tR]"	<clock>
-DateTime WallSwitch_Hall_LastUpdate
+Number	Temp_Sensor_Upstairs_Min	"Today's minimum [%.1f C]"	<temperature>	(GF_Upstairs,Upstairs_Temperature_Chart)
+Number	Temp_Sensor_Upstairs_Max	"Today's maximum [%.1f C]"	<temperature>	(GF_Upstairs,Upstairs_Temperature_Chart)
+Number	Temp_Sensor_Upstairs_Chart_Period	"Upstairs Temp Chart Period"
+
+Number	Temp_Sensor_Outside_Min	"Today's minimum [%.1f C]"	<temperature>	(GF_Outside,Outside_Temperature_Chart)
+Number	Temp_Sensor_Outside_Max	"Today's maximum [%.1f C]"	<temperature>	(GF_Outside,Outside_Temperature_Chart)
+Number	Temp_Sensor_Outside_Chart_Period	"Outside Temp Chart Period"
+
+DateTime Temp_Sensor_Downstairs_LastUpdate	"Downstairs Temp Updated [%1$ta %1$tR]"	<clock>
+DateTime WallSwitch_Downstairs_LastUpdate
+
+DateTime Temp_Sensor_Upstairs_LastUpdate	"Upstairs Temp Updated [%1$ta %1$tR]"	<clock>
+DateTime WallSwitch_Upstairs_LastUpdate
+
+DateTime Temp_Sensor_Outside_LastUpdate	"Outside Temp Updated [%1$ta %1$tR]"	<clock>
+DateTime WallSwitch_Outside_LastUpdate
+
 DateTime WallSwitch_Lounge_LastUpdate
 DateTime WallSwitch_Kitchen_LastUpdate
 DateTime Temp_Desired_Thermostat_LastUpdate
 DateTime HeatCall_Thermostat_LastUpdate
 DateTime Boiler_Sensor_LastUpdate
-DateTime Humid_Sensor_Hall_LastUpdate
-DateTime Lumin_Sensor_Hall_LastUpdate
-DateTime Motion_Sensor_Hall_LastUpdate
+
+DateTime Humid_Sensor_Downstairs_LastUpdate
+DateTime Lumin_Sensor_Downstairs_LastUpdate
+DateTime Motion_Sensor_Downstairs_LastUpdate
+
+DateTime Humid_Sensor_Upstairs_LastUpdate
+DateTime Lumin_Sensor_Upstairs_LastUpdate
+DateTime Motion_Sensor_Upstairs_LastUpdate
+
+DateTime Humid_Sensor_Outside_LastUpdate
+DateTime Lumin_Sensor_Outside_LastUpdate
+DateTime Motion_Sensor_Outside_LastUpdate
+
 DateTime Humid_Sensor_Landing_LastUpdate
 DateTime Lumin_Sensor_Landing_LastUpdate
 DateTime Motion_Sensor_Landing_LastUpdate
@@ -97,7 +119,9 @@ DateTime Contact_FrontDoor_LastUpdate
 DateTime Contact_BackDoor_LastUpdate
 DateTime Temp_Sensor_Thermostat_LastUpdate
 DateTime Auto_Away_LastUpdate
-DateTime Battery_Sensor_Hall_LastUpdate
+DateTime Battery_Sensor_Downstairs_LastUpdate
+DateTime Battery_Sensor_Upstairs_LastUpdate
+DateTime Battery_Sensor_Outside_LastUpdate
 DateTime Battery_FrontDoor_LastUpdate
 DateTime Battery_BackDoor_LastUpdate
 DateTime Battery_Sensor_Thermostat_LastUpdate
