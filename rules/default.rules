@@ -10,30 +10,38 @@ then
     postUpdate(Manual_Away, OFF)
 end
 
-rule "Update Hall max and min temperatures"
+rule "Update Downstairs max and min temperatures"
 when
-	Item Temp_Sensor_Hall changed or
+	Item Temp_Sensor_Downstairs changed or
 	System started
-then	
-	postUpdate(Temp_Sensor_Hall_Max, Temp_Sensor_Hall.maximumSince(now.toDateMidnight).state)
-	postUpdate(Temp_Sensor_Hall_Min, Temp_Sensor_Hall.minimumSince(now.toDateMidnight).state)
+then
+	postUpdate(Temp_Sensor_Downstairs_Max, Temp_Sensor_Downstairs.maximumSince(now.toDateMidnight).state)
+	postUpdate(Temp_Sensor_Downstairs_Min, Temp_Sensor_Downstairs.minimumSince(now.toDateMidnight).state)
 end
 
-
-rule "Update Landing max and min temperatures"
+rule "Update Upstairs max and min temperatures"
 when
-	Item Temp_Sensor_Landing changed or
-	System started
-then	
-	postUpdate(Temp_Sensor_Landing_Max, Temp_Sensor_Landing.maximumSince(now.toDateMidnight).state)
-	postUpdate(Temp_Sensor_Landing_Min, Temp_Sensor_Landing.minimumSince(now.toDateMidnight).state)
+  Item Temp_Sensor_Upstairs changed or
+  System started
+then
+  postUpdate(Temp_Sensor_Upstairs_Max, Temp_Sensor_Upstairs.maximumSince(now.toDateMidnight).state)
+  postUpdate(Temp_Sensor_Upstairs_Min, Temp_Sensor_Upstairs.minimumSince(now.toDateMidnight).state)
+end
+
+rule "Update Outside max and min temperatures"
+when
+  Item Temp_Sensor_Outside changed or
+  System started
+then
+  postUpdate(Temp_Sensor_Outside_Max, Temp_Sensor_Outside.maximumSince(now.toDateMidnight).state)
+  postUpdate(Temp_Sensor_Outside_Min, Temp_Sensor_Outside.minimumSince(now.toDateMidnight).state)
 end
 
 rule "Update Weather max and min temperatures"
 when
 	Item Weather_Temperature changed or
 	System started
-then	
+then
 	postUpdate(Weather_Temp_Max, Weather_Temperature.maximumSince(now.toDateMidnight).state)
 	postUpdate(Weather_Temp_Min, Weather_Temperature.minimumSince(now.toDateMidnight).state)
 end
@@ -45,18 +53,25 @@ then
     postUpdate(MainPC_Wake, OFF)
 end
 
-rule "Record Hall last temp update time"
+rule "Record Downstairs last temp update time"
 when
-  Item Temp_Sensor_Hall received update
+  Item Temp_Sensor_Downstairs received update
 then
-  postUpdate(Temp_Sensor_Hall_LastUpdate, new DateTimeType())
+  postUpdate(Temp_Sensor_Downstairs_LastUpdate, new DateTimeType())
 end
 
-rule "Record Landing last temp update time"
+rule "Record Upstairs last temp update time"
 when
-  Item Temp_Sensor_Landing received update
+  Item Temp_Sensor_Upstairs received update
 then
-  postUpdate(Temp_Sensor_Landing_LastUpdate, new DateTimeType())
+  postUpdate(Temp_Sensor_Upstairs_LastUpdate, new DateTimeType())
+end
+
+rule "Record Outside last temp update time"
+when
+  Item Temp_Sensor_Outside received update
+then
+  postUpdate(Temp_Sensor_Outside_LastUpdate, new DateTimeType())
 end
 
 rule "Record WallSwitch_Hall_LastUpdate"
@@ -205,4 +220,3 @@ when
 then
   postUpdate(Boiler_Thermo_LastUpdate, new DateTimeType())
 end
-
